@@ -136,6 +136,8 @@ Sinema filmleri 2.2:1 kırpılmış kareyle gelir (ör. `1280 × 582`). Bu durum
 
 **Güvenli olduğunu iddia etmiyoruz, kanıtlıyoruz.** Kaynak açık, izinler sınırlı, ağ trafiği tek ve şeffaf. 🛡️
 
+📄 Ayrıntılı politika ve özel bildirim: [`SECURITY.md`](SECURITY.md) · [Wiki → Güvenlik](https://github.com/taroxzen/T-PrimeRes/wiki/G%C3%BCvenlik)
+
 ---
 
 ## 🛠️ Teknoloji ve yapı / Tech stack 💻
