@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-PrimeRes</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-name">T-PRIMERES</span>
+      </div>
+      <div class="status" id="status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">SCANNING</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-label" id="heroLabel">CURRENT PLAYBACK</div>
+        <div class="hero-row">
+          <span class="hero-number" id="heroNumber">—</span>
+          <span class="hero-unit" id="heroUnit">P</span>
+        </div>
+        <div class="hero-sub" id="heroSub">PRIME VIDEO</div>
+      </section>
+
+      <section class="gauge">
+        <div class="gauge-head">
+          <span class="label">SIGNAL / AVAILABLE</span>
+          <span class="label" id="gaugeValue">— / —</span>
+        </div>
+        <div class="segments" id="segments" aria-hidden="true"></div>
+        <div class="gauge-scale">
+          <span>480P</span><span>1080P</span><span>2160P</span>
+        </div>
+      </section>
+
+      <section class="data" id="dataRows">
+        <div class="row"><span class="row-label">DIMENSIONS</span><span class="row-value" id="vDimensions">—</span></div>
+        <div class="row"><span class="row-label">MAX AVAILABLE</span><span class="row-value" id="vMax">—</span></div>
+        <div class="row"><span class="row-label">CODEC / HDR</span><span class="row-value" id="vCodec">—</span></div>
+        <div class="row"><span class="row-label">FRAME RATE</span><span class="row-value" id="vFps">—</span></div>
+        <div class="row"><span class="row-label">PLAYER STATE</span><span class="row-value" id="vState">—</span></div>
+        <div class="row"><span class="row-label">SOURCE</span><span class="row-value" id="vSource">—</span></div>
+      </section>
+
+      <p class="notice" id="notice" hidden></p>
+    </main>
+
+    <footer class="footer">
+      <button class="btn" id="refresh" type="button">RE-SCAN</button>
+      <span class="caption" id="timestamp">—</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

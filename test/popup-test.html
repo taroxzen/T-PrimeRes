@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>T-PrimeRes — popup test (gerçek ölçüm verisi)</title>
+  <link rel="stylesheet" href="../popup/popup.css">
+  <style>
+    body { display: flex; justify-content: center; padding: 24px; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-name">T-PRIMERES</span>
+      </div>
+      <div class="status" id="status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">SCANNING</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-label" id="heroLabel">CURRENT PLAYBACK</div>
+        <div class="hero-row">
+          <span class="hero-number" id="heroNumber">—</span>
+          <span class="hero-unit" id="heroUnit">P</span>
+        </div>
+        <div class="hero-sub" id="heroSub">PRIME VIDEO</div>
+      </section>
+
+      <section class="gauge">
+        <div class="gauge-head">
+          <span class="label">SIGNAL / AVAILABLE</span>
+          <span class="label" id="gaugeValue">— / —</span>
+        </div>
+        <div class="segments" id="segments" aria-hidden="true"></div>
+        <div class="gauge-scale">
+          <span>480P</span><span>1080P</span><span>2160P</span>
+        </div>
+      </section>
+
+      <section class="data" id="dataRows">
+        <div class="row"><span class="row-label">DIMENSIONS</span><span class="row-value" id="vDimensions">—</span></div>
+        <div class="row"><span class="row-label">MAX AVAILABLE</span><span class="row-value" id="vMax">—</span></div>
+        <div class="row"><span class="row-label">CODEC / HDR</span><span class="row-value" id="vCodec">—</span></div>
+        <div class="row"><span class="row-label">FRAME RATE</span><span class="row-value" id="vFps">—</span></div>
+        <div class="row"><span class="row-label">PLAYER STATE</span><span class="row-value" id="vState">—</span></div>
+        <div class="row"><span class="row-label">SOURCE</span><span class="row-value" id="vSource">—</span></div>
+      </section>
+
+      <p class="notice" id="notice" hidden></p>
+    </main>
+
+    <footer class="footer">
+      <button class="btn" id="refresh" type="button">RE-SCAN</button>
+      <span class="caption" id="timestamp">—</span>
+    </footer>
+  </div>
+
+  <script>
+    // Gerçek Prime Video ölçümü (Brave, 21.11.2026) — popup.js mantığını besler.
+    var PAYLOAD = {
+      ok: true,
+      data: {
+        ok: true,
+        host: "www.primevideo.com",
+        href: "https://www.primevideo.com/detail/0RVZ5BB59II9EN7V6QRW4PJY0G",
+        video: {
+          width: 1280,
+          height: 582,
+          effectiveHeight: 720,
+          label: "HD",
+          short: "720P",
+          tier: "hd",
+          readyState: 4,
+          paused: false,
+          currentTime: 18.6,
+          duration: 32.1,
+          quality: { dropped: 0, total: 469 }
+        },
+        manifest: {
+          maxHeight: 872,
+          maxWidth: 1920,
+          effectiveMaxHeight: 1080,
+          maxBandwidth: 15000000,
+          minHeight: 208,
+          fps: 25,
+          hdr: false,
+          codecs: ["avc1.4D4016", "mp4a.40.2"],
+          representationCount: 12,
+          audioTracks: 54,
+          url: "https://.../e40dc408...corrected.mpd"
+        },
+        capturedAt: Date.now()
+      },
+      injected: true
+    };
+    var chrome = {
+      tabs: {
+        query: function () {
+          return Promise.resolve([{ id: 1, url: "https://www.primevideo.com/detail/0RVZ5BB59II9EN7V6QRW4PJY0G" }]);
+        },
+        sendMessage: function () {
+          return Promise.resolve(PAYLOAD);
+        }
+      }
+    };
+  </script>
+  <script src="../popup/popup.js"></script>
+</body>
+</html>
